@@ -1,8 +1,6 @@
-package deque;
+package proj1a;
 
-import java.util.Iterator;
-
-public class ArrayDeque<Type> implements Deque<Type>{
+public class ArrayDeque<Type> {
     private Type[] items;
     private int size;
     private int SCALE_FACTOR = 4;
@@ -115,64 +113,6 @@ public class ArrayDeque<Type> implements Deque<Type>{
         for (int i = 0; i < size(); i = i + 1) {
             System.out.print(get(i) + " ");
         }
-    }
-
-
-    @Override
-    public Iterator<Type> iterator() {
-        return new ArrayDequeIterator();
-    }
-
-    private class ArrayDequeIterator implements Iterator<Type> {
-        private int iterPos;
-
-        public ArrayDequeIterator() {
-            iterPos = 0;
-        }
-
-        @Override
-        public boolean hasNext() {
-            return iterPos < size;
-        }
-
-        @Override
-        public Type next() {
-            Type returnItem = get(iterPos);
-            iterPos++;
-            return returnItem;
-        }
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (this == other) {
-            return true;
-        }
-        if (other == null) {
-            return false;
-        }
-        if (other.getClass() != this.getClass()) {
-            return false;
-        }
-
-        ArrayDeque<Type> o = (ArrayDeque<Type>) other;
-
-        if (o.size() != this.size()) {
-            return false;
-        }
-
-        Iterator<Type> thisIter = iterator();
-        Iterator<Type> otherIter = o.iterator();
-
-        while (thisIter.hasNext() && otherIter.hasNext()) {
-            Type thisValue = thisIter.next();
-            Type otherValue = otherIter.next();
-            if ( !thisValue.equals(otherValue) ) {
-                return false;
-            }
-        }
-
-        return true;
     }
 
 }

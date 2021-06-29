@@ -1,8 +1,6 @@
-package deque;
+package proj1a;
 
-import java.util.Iterator;
-
-public class LinkedListDeque<Type> implements Deque<Type> {
+public class LinkedListDeque<Type> {
     public class Node {
         public Type item;
         public Node prev;
@@ -101,62 +99,5 @@ public class LinkedListDeque<Type> implements Deque<Type> {
             System.out.print(current.item + " ");
             current = current.next;
         }
-    }
-
-    @Override
-    public Iterator<Type> iterator() {
-        return new LinkedListDequeIterator();
-    }
-
-    private class LinkedListDequeIterator implements Iterator<Type> {
-        private Node iterNode;
-
-        public LinkedListDequeIterator() {
-            iterNode = sentinel.next;
-        }
-
-        @Override
-        public boolean hasNext() {
-            return iterNode != sentinel;
-        }
-
-        @Override
-        public Type next() {
-            Type returnItem = iterNode.item;
-            iterNode = iterNode.next;
-            return returnItem;
-        }
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (this == other) {
-            return true;
-        }
-        if (other == null) {
-            return false;
-        }
-        if (other.getClass() != this.getClass()) {
-            return false;
-        }
-
-        LinkedListDeque<Type> o = (LinkedListDeque<Type>) other;
-
-        if (o.size() != this.size()) {
-            return false;
-        }
-
-        Iterator<Type> thisIter = iterator();
-        Iterator<Type> otherIter = o.iterator();
-
-        while (thisIter.hasNext() && otherIter.hasNext()) {
-            Type thisValue = thisIter.next();
-            Type otherValue = otherIter.next();
-            if ( !thisValue.equals(otherValue) ) {
-                return false;
-            }
-        }
-
-        return true;
     }
 }
