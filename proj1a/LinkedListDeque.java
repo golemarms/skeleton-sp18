@@ -1,5 +1,3 @@
-package proj1a;
-
 public class LinkedListDeque<Type> {
     public class Node {
         public Type item;

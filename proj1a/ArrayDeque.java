@@ -1,5 +1,3 @@
-package proj1a;
-
 public class ArrayDeque<Type> {
     private Type[] items;
     private int size;
