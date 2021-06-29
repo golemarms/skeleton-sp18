@@ -91,6 +91,10 @@ public class LinkedListDeque<Type> {
 
     }
 
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
     public void printDeque() {
         Node current = sentinel.next;
         for (int i = 0; i < size() && current != sentinel; i++) {

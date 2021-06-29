@@ -16,6 +16,10 @@ public class ArrayDeque<Type> {
         return size;
     }
 
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
     private Type getLast() {
         return get(size-1);
     }
